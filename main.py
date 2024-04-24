@@ -15,14 +15,23 @@ discover_delay = int(os.getenv('DISCOVER_DELAY'))
 ready_to_discover = True
 
 async def main():
-   await discover_bulbs()
+   try:
+      await discover_bulbs()
+   except Exception as e:
+      pass
 
    while True:
       for i in range(1, discover_delay//measurement_delay):
          await asyncio.sleep(measurement_delay)
-         await measure(bulbs, API_ENDPOINT+"/measurements")  
-      await discover_bulbs()
-   
+         try:
+            await measure(bulbs, API_ENDPOINT+"/measurements")  
+         except Exception as e:
+            pass
+      try:
+         await discover_bulbs()
+      except Exception as e:
+         pass
+
 async def discover_bulbs():
    #update bulbs list
    print("Discovering bulbs")
@@ -48,8 +57,6 @@ async def measure(bulbs, api_endpoint):
       try :
          await send_data(bulb, api_endpoint)
       except Exception as e:
-         print("Error measuring bulb")
-         print(e)
          pass
 
 async def send_data(bulb, api_endpoint):
