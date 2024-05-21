@@ -8,7 +8,7 @@ from pywizlight import wizlight, PilotBuilder, discovery
 
 load_dotenv()
 
-API_ENDPOINT = "http://" + str(os.getenv('SERVER_HOST_URL'))
+API_ENDPOINT = "http://" + str(os.getenv('API_URL'))
 
 measurement_delay = int(os.getenv('MEASUREMENT_DELAY'))
 discover_delay = int(os.getenv('DISCOVER_DELAY'))
