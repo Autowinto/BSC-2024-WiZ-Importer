@@ -38,7 +38,7 @@ async def discover_bulbs():
    global bulbs
    bulbs = await discovery.discover_lights(broadcast_space="10.10.255.255")
    for bulb in bulbs:
-      r = requests.post(url = API_ENDPOINT+"/smartplugs", json = {'id': str(bulb.mac), 'name': str(bulb.mac)})
+      r = requests.post(url = API_ENDPOINT+"/smartPlugs", json = {'id': str(bulb.mac), 'name': str(bulb.mac)})
       #check error code
       if r.status_code == 200:
          print("Bulb already in database")
