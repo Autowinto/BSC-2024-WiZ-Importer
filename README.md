@@ -1,5 +1,7 @@
 # Meterpreter Wiz Importer
 
+[![Docker Image Status](https://github.com/Autowinto/BSC-2024-WiZ-Importer/actions/workflows/publish.yml/badge.svg)](https://github.com/Autowinto/BSC-2024-WiZ-Importer/actions/workflows/publish.yml)
+
 A tool for discovering and importing power usage data from WiZ light bulbs
 
 ## ENV Variables
