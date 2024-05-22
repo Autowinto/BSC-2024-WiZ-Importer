@@ -8,13 +8,17 @@ from pywizlight import wizlight, PilotBuilder, discovery
 
 load_dotenv()
 
-API_ENDPOINT = "http://" + str(os.getenv('API_URL'))
+API_ENDPOINT = str(os.getenv('API_URL'))
+if not API_ENDPOINT:
+   print("API_URL not found")
+   exit()
 
 measurement_delay = int(os.getenv('MEASUREMENT_DELAY'))
 discover_delay = int(os.getenv('DISCOVER_DELAY'))
 ready_to_discover = True
 
 async def main():
+   print("Starting Wiz Importer")
    try:
       await discover_bulbs()
    except Exception as e:

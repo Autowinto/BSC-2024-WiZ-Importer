@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.12
 
 WORKDIR /app
 
@@ -12,4 +12,4 @@ ENV API_URL="http://localhost:3000"
 ENV MEASUREMENT_DELAY=3
 ENV DISCOVER_DELAY=15
 
-CMD ["python", "main.py"]
+CMD ["python", "-u", "main.py"]
